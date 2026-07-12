@@ -1,17 +1,23 @@
 {
-  "name": "backend",
+  "name": "hospital-management-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Hospital Management System - Backend API",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["hospital", "management", "api"],
+  "author": "The Ritesh Dwivedi",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "mongoose": "^8.5.1"
+    "mongoose": "^8.5.1",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

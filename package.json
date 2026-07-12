@@ -1,18 +1,24 @@
 {
-  "name": "rd-hospital",
-  "version": "0.1.0",
+  "name": "hospital-management-system",
+  "version": "1.0.0",
+  "description": "Full-stack Hospital Management System",
   "private": true,
-  "dependencies": {
-    "axios": "^0.21.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
-  },
+  "author": "The Ritesh Dwivedi",
+  "license": "ISC",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cd hospital-management-system && bash start.sh",
+    "backend": "cd hospital-management-system/backend && npm run dev",
+    "frontend": "cd hospital-management-system/frontend && npm start",
+    "build": "cd hospital-management-system/frontend && npm run build",
+    "install:all": "cd hospital-management-system/backend && npm install && cd ../frontend && npm install",
+    "test": "echo 'Run tests in respective folders'"
   },
-  ...
+  "keywords": [
+    "hospital",
+    "management",
+    "system",
+    "express",
+    "react",
+    "mongodb"
+  ]
 }

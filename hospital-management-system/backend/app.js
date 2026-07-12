@@ -9,18 +9,27 @@ const departmentRoutes = require('./routes/departments');
 const prescriptionRoutes = require('./routes/prescriptions');
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
 mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+  .then(() => console.log('✓ MongoDB connected'))
+  .catch(err => console.error('✗ MongoDB connection error:', err));
 
-app.use('/users', userRoutes);
-app.use('/roles', roleRoutes);
-app.use('/appointments', appointmentRoutes);
-app.use('/departments', departmentRoutes);
-app.use('/prescriptions', prescriptionRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/roles', roleRoutes);
+app.use('/api/appointments', appointmentRoutes);
+app.use('/api/departments', departmentRoutes);
+app.use('/api/prescriptions', prescriptionRoutes);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'Server is running' });
+});
+
+const PORT = config.port;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT} (${config.environment})`);
+});
+
+module.exports = app;
